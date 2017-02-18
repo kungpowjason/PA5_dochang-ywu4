@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 }
 void processInput(ifstream &input) {
 	int line_cnt = 1;
-	while (input.peek() != EOF) {
+	while (input.peek() != '\n' && input.peek() != EOF) {
 
 		Rational r1;
 
