@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include "Rational.h"
+#include "string.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {
+void processInput(ifstream &input);
 
-	FILE *file_input; // declare file pointer
+int main(int argc, char *argv[]) {
 
 	/* Argument Handling Section*/
 	if (argc < 2) { // expect at least an file_input file.
@@ -22,27 +23,77 @@ int main(int argc, char *argv[]) {
 		// program(0) inputfile(1) ...
 		// file input starts at index 1.
 		for (int i = 1; i < argc; i++) {
-			file_input = fopen(argv[i], "r"); // argv[0] is program name argv[1] is the start of arguments
+			ifstream file_input(argv[i]); // argv[0] is program name argv[1] is the start of arguments
 			if (!file_input) { // error handling for file unable to be open
 				printf("Error: Unable To Open File\n");
 				exit(EXIT_FAILURE);
 			}
-			fclose(file_input);
+			cout << "Input File: " << argv[i] << endl;
+			processInput(file_input);
 		}
 	}
-	Rational r1 = Rational(10, -2);
+}
+void processInput(ifstream &input) {
+	int line_cnt = 1;
+	while (input.peek() != EOF) {
 
-	Rational r2 = Rational(-20, -1);
+		Rational r1;
 
-	cout << r1 << endl;
-	cout << r2 << endl;
+		bool isBool = false;
+		bool out_bool = false;
 
-	r2 = r1;
+		input >> r1;
+		cout << "L" << line_cnt << ": " << r1 << " ";
 
-	cout << r1 << endl;
-//	//cin >> r1;
-//	r1.normalize(r1.getNumerator(), r1.getDenominator());
-//	cout << r1 << endl;
-
-	return 0;
+		while (input.peek() != '\n' && input.peek() != EOF) {
+			string operation;
+			Rational r2;
+			input >> r2;
+			input >> operation;
+			cout << r2 << " " << operation << " ";
+			if (operation == "+") {
+				r1 += r2;
+				isBool = false;
+			} else if (operation == "-") {
+				r1 -= r2;
+				isBool = false;
+			} else if (operation == "*") {
+				r1 *= r2;
+				isBool = false;
+			} else if (operation == "/") {
+				r1 /= r2;
+				isBool = false;
+			} else if (operation == "==") {
+				out_bool = r1 == r2;
+				isBool = true;
+			} else if (operation == "!=") {
+				out_bool = r1 != r2;
+				isBool = true;
+			} else if (operation == "<") {
+				out_bool = r1 < r2;
+				isBool = true;
+			} else if (operation == "<=") {
+				out_bool = r1 <= r2;
+				isBool = true;
+			} else if (operation == ">") {
+				out_bool = r1 > r2;
+				isBool = true;
+			} else if (operation == ">=") {
+				out_bool = r1 >= r2;
+				isBool = true;
+			}
+		}
+		// removes the newline character unless end of file.
+		if (input.peek() != EOF) {
+			input.get();
+		}
+		// print output based on boolean or double result;
+		if (isBool) {
+			cout << "\t: " << boolalpha << out_bool << noboolalpha << endl;
+		} else {
+			cout << "\t: " << r1 << " (double " << r1.toDouble() << ")" << endl;
+		}
+		//ignore new line char
+		line_cnt++; // increase line count, move to next line
+	}
 }

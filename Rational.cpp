@@ -6,6 +6,7 @@
  */
 
 #include "Rational.h"
+
 /**
  * Constructor for Rational.
  */
@@ -97,9 +98,21 @@ istream &operator >>(istream &ins, Rational &a) {
 	char *buf = new char[256];
 	char *num;
 	char *denom;
-	ins.getline(buf, 256);
+	int cnt = 0;
+	char c;
+	// ignore all the white spaces before.
+	while (ins.peek() == ' ') {
+		ins.ignore();
+	}
+	// store the good data in the array.
+	while (ins.peek() != '\n' && ins.peek() != ' ') {
+		c = ins.get();
+		buf[cnt] = c;
+		cnt++;
+	}
+	buf[cnt] = ins.get();
 	num = strtok(buf, " /");
-	denom = strtok(NULL, "\n");
+	denom = strtok(NULL, " ");
 	a.setNumerator(atoi(num));
 	if (denom != NULL) {
 		a.setDenominator(atoi(denom));
