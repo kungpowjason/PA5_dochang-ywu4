@@ -99,12 +99,18 @@ istream &operator >>(istream &ins, Rational &a) {;
 	int denom = 0;
 	char c;
 
-	ins >> num;
-	a.setNumerator(num);
-	if (ins.peek() == '/') {
-		ins >> c;
-		ins >> denom;
-		a.setDenominator(denom);
+	while(((c = ins.peek()) == ' ') || c == '\t' ){
+		ins.get();
+	}
+	c = ins.peek();
+	if(c <= '9' && c >= '0'){
+		ins >> num;
+		a.setNumerator(num);
+		if (ins.peek() == '/') {
+			ins >> c;
+			ins >> denom;
+			a.setDenominator(denom);
+		}
 	}
 	return ins;
 }
