@@ -34,6 +34,7 @@ public:
 	bool operator <=(const Rational &a) const;
 	bool operator >(const Rational &a) const;
 	bool operator >=(const Rational &a) const;
+
 	Rational operator +(const Rational &a);
 	Rational operator -(const Rational &a);
 	Rational operator *(const Rational &a);

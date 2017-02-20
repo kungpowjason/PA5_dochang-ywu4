@@ -94,28 +94,17 @@ ostream &operator <<(ostream &outs, const Rational &a) {
  * @param a The Rational to be written to.
  * @return
  */
-istream &operator >>(istream &ins, Rational &a) {
-	char *buf = new char[256];
-	char *num;
-	char *denom;
-	int cnt = 0;
+istream &operator >>(istream &ins, Rational &a) {;
+	int num = 0;
+	int denom = 0;
 	char c;
-	// ignore all the white spaces before.
-	while (ins.peek() == ' ') {
-		ins.ignore();
-	}
-	// store the good data in the array.
-	while (ins.peek() != '\n' && ins.peek() != ' ') {
-		c = ins.get();
-		buf[cnt] = c;
-		cnt++;
-	}
-	buf[cnt] = ins.get();
-	num = strtok(buf, " /");
-	denom = strtok(NULL, " ");
-	a.setNumerator(atoi(num));
-	if (denom != NULL) {
-		a.setDenominator(atoi(denom));
+
+	ins >> num;
+	a.setNumerator(num);
+	if (ins.peek() == '/') {
+		ins >> c;
+		ins >> denom;
+		a.setDenominator(denom);
 	}
 	return ins;
 }
