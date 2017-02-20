@@ -28,8 +28,12 @@ int main(int argc, char *argv[]) {
 				printf("Error: Unable To Open File\n");
 				exit(EXIT_FAILURE);
 			}
+			// print out the current file name.
 			cout << "Input File: " << argv[i] << endl;
+			// read in the lines of the input and perform calculations.
 			processInput(file_input);
+			// close current file when done.
+			file_input.close();
 		}
 	}
 }
