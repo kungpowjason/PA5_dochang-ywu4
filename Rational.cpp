@@ -125,7 +125,7 @@ istream &operator >>(istream &ins, Rational &a) {
  * @return 1 if equal and 0 if not.
  */
 bool Rational::operator ==(const Rational &a) const {
-	return (this->toDouble() == a.toDouble());
+	return ((this->numerator*a.denominator) == (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator !=.
@@ -133,7 +133,7 @@ bool Rational::operator ==(const Rational &a) const {
  * @return 1 if not equal and 0 if equal.
  */
 bool Rational::operator !=(const Rational &a) const {
-	return (this->toDouble() != a.toDouble());
+	return ((this->numerator*a.denominator) != (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator <.
@@ -141,7 +141,7 @@ bool Rational::operator !=(const Rational &a) const {
  * @return 1 if less than and 0 if else.
  */
 bool Rational::operator <(const Rational &a) const {
-	return (this->toDouble() < a.toDouble());
+	return ((this->numerator*a.denominator) < (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator <=.
@@ -149,7 +149,7 @@ bool Rational::operator <(const Rational &a) const {
  * @return 1 if less than or equal to and 0 if else.
  */
 bool Rational::operator <=(const Rational &a) const {
-	return (this->toDouble() <= a.toDouble());
+	return ((this->numerator*a.denominator) <= (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator >.
@@ -157,7 +157,7 @@ bool Rational::operator <=(const Rational &a) const {
  * @return 1 if greater than and 0 if else.
  */
 bool Rational::operator >(const Rational &a) const {
-	return (this->toDouble() > a.toDouble());
+	return ((this->numerator*a.denominator) > (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator >=.
@@ -165,7 +165,7 @@ bool Rational::operator >(const Rational &a) const {
  * @return 1 if greater than or equal to and 0 if else.
  */
 bool Rational::operator >=(const Rational &a) const {
-	return (this->toDouble() >= a.toDouble());
+	return ((this->numerator*a.denominator) >= (a.numerator*this->denominator));
 }
 /**
  * Overloaded operator +;
