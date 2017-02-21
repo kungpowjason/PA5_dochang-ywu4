@@ -103,7 +103,7 @@ istream &operator >>(istream &ins, Rational &a) {;
 		ins.get();
 	}
 	c = ins.peek();
-	if(c <= '9' && c >= '0'){
+	if((c <= '9' && c >= '0') || c == '-'){
 		ins >> num;
 		a.setNumerator(num);
 		if (ins.peek() == '/') {
