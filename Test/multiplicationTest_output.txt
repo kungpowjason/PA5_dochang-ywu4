@@ -1,0 +1,16 @@
+Input File: Test/multiplicationTest.txt
+L1: 1/1 2/1 * 	: 2/1 (double 2)
+L2: 9/3 1/2 * 	: 3/2 (double 1.5)
+L3: 9/-3 1/2 * 	: -3/2 (double -1.5)
+L4: -9/3 1/2 * 	: -3/2 (double -1.5)
+error: division by zero
+Error: Denominator is being set to 0
+Error: Denominator is being set to 0
+L5: 0/0 1/2 * error: division by zero
+Error: Denominator is being set to 0
+Error: Denominator is being set to 0
+0/0 * 	: 0/0 (double -nan)
+L6: 0/1 0/1 * 	: 0/1 (double 0)
+L7: 0/1 0/1 * 	: 0/1 (double 0)
+L8: 27/12 6/1 * 	: 27/2 (double 13.5)
+

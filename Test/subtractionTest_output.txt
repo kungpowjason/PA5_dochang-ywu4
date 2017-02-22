@@ -1,0 +1,16 @@
+Input File: Test/subtractionTest.txt
+L1: 1/1 2/1 - 	: -1/1 (double -1)
+L2: 9/3 1/2 - 	: 5/2 (double 2.5)
+L3: 9/-3 1/2 - 	: -7/2 (double -3.5)
+L4: -9/3 1/2 - 	: -7/2 (double -3.5)
+error: division by zero
+Error: Denominator is being set to 0
+Error: Denominator is being set to 0
+L5: 0/0 1/2 - error: division by zero
+Error: Denominator is being set to 0
+Error: Denominator is being set to 0
+0/0 - 	: 0/0 (double -nan)
+L6: 0/1 0/1 - 	: 0/1 (double 0)
+L7: 0/1 0/1 - 	: 0/1 (double 0)
+L8: 27/12 6/1 - 	: -15/4 (double -3.75)
+

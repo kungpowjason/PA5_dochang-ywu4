@@ -1,0 +1,67 @@
+Input File: Test/testExtraCredit.txt
+L1: 1/4 9/10 += 	: 23/20 (double 1.15)
+L2: -4/1 0/1 += 	: -4/1 (double -4)
+L3: 0/1 0/1 += 	: 0/1 (double 0)
+L4: 5/1 1/1 += 	: 6/1 (double 6)
+L5: 5/5 10/2 += 	: 6/1 (double 6)
+L6: 5/6 7/3 += 15/2 += 9/1 -= 	: 5/3 (double 1.66667)
+L7: -56/17 4/1 += 	: 12/17 (double 0.705882)
+L8: 56/-17 4/1 += 	: 12/17 (double 0.705882)
+L9: 1/4 9/10 -= 	: -13/20 (double -0.65)
+L10: -4/1 0/1 -= 	: -4/1 (double -4)
+L11: 0/1 0/1 -= 	: 0/1 (double 0)
+L12: 5/1 1/1 -= 	: 4/1 (double 4)
+L13: 5/10 6/12 -= 	: 0/1 (double 0)
+L14: 23/1 1/4 -= 	: 91/4 (double 22.75)
+L15: 1/4 9/10 *= 	: 9/40 (double 0.225)
+L16: -4/1 0/1 *= 	: 0/1 (double 0)
+L17: 0/1 0/1 *= 	: 0/1 (double 0)
+L18: 5/1 1/1 *= 	: 5/1 (double 5)
+L19: 4/10 6/5 * 19/1 -= 	: -463/25 (double -18.52)
+L20: -56/17 4/1 + 5/1 *= 	: 60/17 (double 3.52941)
+L21: 1/-2 12/134 *= 10/1 *= -51/7 *= 	: 1530/469 (double 3.26226)
+L22: 1/4 9/10 /= 	: 5/18 (double 0.277778)
+L23: -4/1 0/1 /= Division by zero
+	: 0/0 (double -nan)
+L24: 0/1 0/1 /= Division by zero
+	: 0/0 (double -nan)
+L25: 5/1 1/1 /= 	: 5/1 (double 5)
+L26: 1/-2 -1/2 /= 	: 1/1 (double 1)
+L27: 2/3 3/2 /= 	: 4/9 (double 0.444444)
+L28: 5/6 4/1 / 10/1 *= 	: 25/12 (double 2.08333)
+L29: 0/1 0/1 != 	: false
+L30: 1/2 1/2 != 	: false
+L31: 1/5 1/-5 != 	: true
+L32: 1/3 1/4 != 	: true
+L33: 0/1 0/1 < 	: false
+L34: 56/1 56/1 < 	: false
+L35: 7/1 6/1 < 	: false
+L36: 6/1 -6/11 < 	: false
+L37: 3/1 7/1 + 6/1 < 	: false
+L38: 43/1 90/1 < 	: true
+L39: 0/1 0/1 <= 	: true
+L40: -6/3 6/3 <= 	: true
+L41: 6/3 -6/3 <= 	: false
+L42: 0/4 19/5 <= 	: true
+L43: 56/1 56/1 <= 	: true
+L44: 3/1 7/1 + 6/1 <= 	: false
+L45: 0/1 0/1 > 	: false
+L46: 3/1 7/1 + 6/1 > 	: true
+L47: -3/6 3/6 > 	: false
+L48: 3/6 -3/-6 > 	: false
+L49: 0/1 0/1 >= 	: true
+L50: 3/1 7/1 + 6/1 >= 	: true
+L51: 1/2 2/3 >= 	: false
+L52: 1/9 0/1 >= 	: true
+L53: 0/1 0/1 == 	: true
+L54: 3/4 1/4 + 1/1 == 	: true
+L55: 2/2 4/2 + 6/2 == 	: true
+L56: 2/4 2/1 / 1/4 == 	: true
+L57: 2/4 1/2 == 1/2 < 	: false
+L58: 6/-3 0/1 - 	: -2/1 (double -2)
+L59: 0/2 0/1 - 	: 0/1 (double 0)
+error: division by zero
+Error: Denominator is being set to 0
+Error: Denominator is being set to 0
+L60: 0/0 1/1 - 	: 0/0 (double -nan)
+
