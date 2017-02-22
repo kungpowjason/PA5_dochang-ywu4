@@ -214,6 +214,12 @@ Rational Rational::operator /(const Rational &a) {
 	long long int num = this->numerator * a.denominator;
 	long long int denom = this->denominator * a.numerator;
 	Rational r;
+	if(this->denominator == 0 || a.numerator == 0){
+		r.numerator = 0;
+		r.denominator = 0;
+		cout<<"Division by zero"<<endl;
+		return r;
+	}
 	r.normalize(num, denom);
 	return r;
 }
