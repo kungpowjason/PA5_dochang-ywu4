@@ -111,6 +111,8 @@ istream &operator >>(istream &ins, Rational &a) {;
 			ins >> denom;
 			if(denom == 0){
 				cout<<"error: division by zero"<<endl;
+				a.setNumerator(0);
+				a.setDenominator(0);
 			}
 			a.setDenominator(denom);
 		}
@@ -176,6 +178,11 @@ Rational Rational::operator +(const Rational &a) {
 	long long int num2 = this->denominator * a.numerator;
 	long long int num_sum = num1 + num2;
 	Rational r;
+	if (a.denominator == 0 || this->denominator == 0){
+		r.numerator = 0;
+		r.denominator = 0;
+		return r;
+	}
 	r.normalize(num_sum, common_denom);
 	return r;
 }
@@ -190,6 +197,11 @@ Rational Rational::operator -(const Rational &a) {
 	long long int num2 = this->denominator * a.numerator;
 	long long int num_sum = num1 - num2;
 	Rational r;
+	if (a.denominator == 0 || this->denominator == 0){
+		r.numerator = 0;
+		r.denominator = 0;
+		return r;
+	}
 	r.normalize(num_sum, common_denom);
 	return r;
 }
@@ -202,6 +214,11 @@ Rational Rational::operator *(const Rational &a) {
 	long long int num = this->numerator * a.numerator;
 	long long int denom = this->denominator * a.denominator;
 	Rational r;
+	if (a.denominator == 0 || this->denominator == 0){
+		r.numerator = 0;
+		r.denominator = 0;
+		return r;
+	}
 	r.normalize(num, denom);
 	return r;
 }
@@ -214,6 +231,11 @@ Rational Rational::operator /(const Rational &a) {
 	long long int num = this->numerator * a.denominator;
 	long long int denom = this->denominator * a.numerator;
 	Rational r;
+	if (a.denominator == 0 || this->denominator == 0){
+		r.numerator = 0;
+		r.denominator = 0;
+		return r;
+	}
 	if(this->denominator == 0 || a.numerator == 0){
 		r.numerator = 0;
 		r.denominator = 0;
