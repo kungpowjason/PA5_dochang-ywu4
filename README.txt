@@ -34,6 +34,9 @@ The input file format is: rational rational op rational op...
 Ex. 5/2 5 +
 	6/2 7 - 4/5 *
 	
+If an error is met a print error statement will be made. and continue on to the
+next line.
+	
 ************
 For boolean cases, since it was not specified, we have decided that if you
 do 3 5 < 5 < it will return true because true will be considered equivalent to 1.
