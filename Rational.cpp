@@ -60,6 +60,9 @@ int Rational::getDenominator() const {
  * @param denominator
  */
 void Rational::setDenominator(int denominator) {
+	if (denominator == 0){
+		cout << "Error: Denominator is being set to 0" << endl;
+	}
 	this->denominator = denominator;
 }
 /**
