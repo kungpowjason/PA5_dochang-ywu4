@@ -109,6 +109,9 @@ istream &operator >>(istream &ins, Rational &a) {;
 		if (ins.peek() == '/') {
 			ins >> c;
 			ins >> denom;
+			if(denom == 0){
+				cout<<"error: division by zero"<<endl;
+			}
 			a.setDenominator(denom);
 		}
 	}

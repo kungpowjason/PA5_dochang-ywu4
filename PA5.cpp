@@ -82,6 +82,18 @@ void processInput(ifstream &input) {
 			} else if (operation == "/") {
 				r1 /= r2;
 				isBool = false;
+			} else if (operation == "+=") {
+				r1 += r2;
+				isBool = false;
+			} else if (operation == "-=") {
+				r1 -= r2;
+				isBool = false;
+			} else if (operation == "*=") {
+				r1 *= r2;
+				isBool = false;
+			} else if (operation == "/=") {
+				r1 /= r2;
+				isBool = false;
 			} else if (operation == "==") {
 				out_bool = r1 == r2;
 				isBool = true;
